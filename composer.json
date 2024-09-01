@@ -1,0 +1,20 @@
+{
+    "name": "nacosvel/package",
+    "description": "A small utility library for handling metadata parsing and expansion.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jundayw",
+            "email": "jundayw@126.com"
+        }
+    ],
+    "require": {
+        "composer-plugin-api": "^1.0|^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nacosvel\\Package\\": "src/"
+        }
+    }
+}
