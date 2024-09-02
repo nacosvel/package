@@ -68,8 +68,12 @@ class Package implements PackageInterface
 
         foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
             if (is_dir($vendorDir)) {
-                return $this->vendorPath = $vendorDir;
+                $this->vendorPath = $vendorDir;
             }
+        }
+
+        if (is_dir($this->vendorPath)) {
+            return $this->vendorPath;
         }
 
         return $this->vendorPath = $this->combinePaths($this->getRootPath(), '/vendor');
