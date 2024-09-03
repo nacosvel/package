@@ -3,7 +3,6 @@
 namespace Nacosvel\Package;
 
 use Composer\Autoload\ClassLoader;
-use Composer\InstalledVersions;
 use Nacosvel\Package\Contracts\PackageInterface;
 
 class Package implements PackageInterface
@@ -37,7 +36,7 @@ class Package implements PackageInterface
             return $this->rootPath;
         }
 
-        return $this->rootPath = realpath(InstalledVersions::getInstallPath('__root__'));
+        return $this->rootPath = realpath($this->getVendorPath('../'));
     }
 
     /**
@@ -72,11 +71,7 @@ class Package implements PackageInterface
             }
         }
 
-        if (is_dir($this->vendorPath)) {
-            return $this->vendorPath;
-        }
-
-        return $this->vendorPath = $this->combinePaths($this->getRootPath(), '/vendor');
+        return $this->vendorPath;
     }
 
     /**
